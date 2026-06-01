@@ -1,9 +1,19 @@
-name: first action
+name: python set up
 on: workflow_dispatch
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: run a test
-        run: echo "first action test job"
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.10"
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: verify python version
+        run: |
+          python --version
+          whoami
+          date
