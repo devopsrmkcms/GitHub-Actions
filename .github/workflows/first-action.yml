@@ -1,0 +1,9 @@
+name: first action
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: run a test
+        run: echo "first action test job"
