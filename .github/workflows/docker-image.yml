@@ -12,3 +12,6 @@ jobs:
 
       - name: Build Docker image
         run: docker build -t my-app -f docker/Dockerfile .
+
+      - name: list images
+        run: docker image ls -a
