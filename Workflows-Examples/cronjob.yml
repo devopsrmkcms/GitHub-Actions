@@ -1,0 +1,13 @@
+name: Scheduled Job
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"   # every 5 minutes
+
+jobs:
+  cron-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run Task
+        run: echo "Running scheduled job"
