@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print docker username
-        run: echo "DOCKER USERNAME: ${{ secret.DOCKER_USERNAME }}"
+        run: echo "DOCKER USERNAME: ${{ secrets.DOCKER_USERNAME }}"
 
 
 
