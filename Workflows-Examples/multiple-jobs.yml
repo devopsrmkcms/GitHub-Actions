@@ -1,14 +1,24 @@
-name: Multi Job
-
-on: push
-
+name: test jobs
+on: workflow_dispatch
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "Building..."
+      - uses: actions/checkout@v4
+      
+      - name: list files
+        run: ls -ltrh
 
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
-      - run: echo "Testing..."
+      - name: testing in progress
+        run: echo "Testing in prorgess"
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test
+    steps:
+      - name: deploy in progress
+        run: echo "deploy in progress"
