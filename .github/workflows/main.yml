@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  echo:
+  print:
     runs-on: ubuntu-latest
 
     steps:
@@ -13,3 +13,13 @@ jobs:
           echo "Hello World"
           whoami
           uptime
+  hello:
+    runs-on: ubuntu-22.04
+    needs: print
+    steps:
+      - name: run the command
+        run: |
+          date
+          ls -ltrh
+          free -g
+  
