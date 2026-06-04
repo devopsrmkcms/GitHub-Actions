@@ -1,0 +1,16 @@
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.set.outputs.name }}
+
+    steps:
+      - id: set
+        run: echo "name=Rizwan" >> $GITHUB_OUTPUT
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+
+    steps:
+      - run: echo "Name: ${{ needs.job1.outputs.name }}"
