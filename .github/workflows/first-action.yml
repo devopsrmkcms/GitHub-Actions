@@ -1,26 +1,29 @@
-name: test jobs
+name: env variable demo
 on: workflow_dispatch
+env:
+  APP_NAME: entrust
+  APP_ENVIRONMENT: staging
+  APP_VERSION: v1.4
+  APP_OWNER: rizwan
+  APP_REGION: ap-south-1
+
 jobs:
-  build:
+  ECHO:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: list files
-        run: ls -ltrh
+      - name: print env variable
+        run: |
+        echo "APPNAME: $APP_NAME"
+        echo "APP ENVIRONMENT: $APP_ENVIRONMENT"
+        echo "APP VERSION: $APP_VERSION"
+        echo "APP OWNER: $APP_OWNER"
+        echo "APP_REGION: $APP_REGION"
 
-  test:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: testing in progress
-        run: echo "Testing in prorgess"
 
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: deploy in progress
-        run: echo "deploy in progress"
+
+
+
+
+    
     
 
