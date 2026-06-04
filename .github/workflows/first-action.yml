@@ -1,31 +1,20 @@
-name: demo context
+name: pass variables
 
 on:
   workflow_dispatch:
 
-env:
-  APP_NAME: entrust
-  STAGE_NAME: dev
-
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      name: ${{ steps.setvar.outputs.name }}
 
     steps:
-      - name: print repo different context
-        run: |
-          echo "APP NAME: $APP_NAME"
-          echo "STAGE_NAME: $STAGE_NAME"
-          echo "Github Repo Name: ${{ github.repository }}"
-          echo "Runner: ${{ runner.os }}"
-          echo "GitHub Actor: ${{ github.actor }}"
+      - id: setvar
+        run: echo "name=rizwan" >> $GITHUB_OUTPUT
 
-
-
-
-
-
-
-    
-    
-
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - run: echo "NAME = ${{ needs.job1.outputs.name }}"
