@@ -21,6 +21,6 @@ jobs:
     needs: test
     steps:
       - name: deploy in progress
-        run: echo "deploy in progress
+        run: echo "deploy in progress"
     
 
