@@ -1,23 +1,11 @@
-name: env variable demo
+name: secret demo
 on: workflow_dispatch
-env:
-  APP_NAME: entrust
-  APP_ENVIRONMENT: staging
-  APP_VERSION: v1.4
-  APP_OWNER: rizwan
-  APP_REGION: ap-south-1
-
 jobs:
-  ECHO:
+  secret-print:
     runs-on: ubuntu-latest
     steps:
-      - name: print env variable
-        run: |
-          echo "APPNAME: $APP_NAME"
-          echo "APP ENVIRONMENT: $APP_ENVIRONMENT"
-          echo "APP VERSION: $APP_VERSION"
-          echo "APP OWNER: $APP_OWNER"
-          echo "APP_REGION: $APP_REGION"
+      - name: print docker username
+        run: echo "DOCKER USERNAME: ${{secret.DOCKER_USERNAME}}"
 
 
 
