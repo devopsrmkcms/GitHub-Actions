@@ -13,11 +13,11 @@ jobs:
     steps:
       - name: print env variable
         run: |
-        echo "APPNAME: $APP_NAME"
-        echo "APP ENVIRONMENT: $APP_ENVIRONMENT"
-        echo "APP VERSION: $APP_VERSION"
-        echo "APP OWNER: $APP_OWNER"
-        echo "APP_REGION: $APP_REGION"
+          echo "APPNAME: $APP_NAME"
+          echo "APP ENVIRONMENT: $APP_ENVIRONMENT"
+          echo "APP VERSION: $APP_VERSION"
+          echo "APP OWNER: $APP_OWNER"
+          echo "APP_REGION: $APP_REGION"
 
 
 
