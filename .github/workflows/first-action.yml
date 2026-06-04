@@ -1,19 +1,25 @@
 name: demo context
-on: workflow_dispatch
+
+on:
+  workflow_dispatch:
+
 env:
   APP_NAME: entrust
   STAGE_NAME: dev
+
 jobs:
   job1:
     runs-on: ubuntu-latest
+
     steps:
       - name: print repo different context
         run: |
           echo "APP NAME: $APP_NAME"
-          echo "STAGE_NAME: $STAGE"
-          echo " Github Repo Name: ${{ github.repository }}"
+          echo "STAGE_NAME: $STAGE_NAME"
+          echo "Github Repo Name: ${{ github.repository }}"
           echo "Runner: ${{ runner.os }}"
           echo "GitHub Actor: ${{ github.actor }}"
+
 
 
 
