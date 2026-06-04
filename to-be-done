@@ -1,1 +1,6 @@
 20 production-level workflows (Docker + Terraform + EKS + Helm) step-by-step like real company pipelines.
+
+
+artifacts
+job outputs
+caching dependencies
